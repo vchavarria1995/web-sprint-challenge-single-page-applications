@@ -28,17 +28,19 @@ export default function App() {
   const [formErrors, setFormErrors] = useState(initialFormErrors)
   const [disabled, setDisabled] = useState(true)
 
-  const createPizza = pizza => {
+  const createPizza = (pizza) => {
     axios
-      .post('https://reqres.in/api/pizza', pizza)
-      .then(response => {
-        console.log(response.data)
+      .post("https://reqres.in/api/orders", pizza)
+      .then((res) => {
+        setPizzas([...pizzas, res.data]);
+        setFormValues(initialFormValues);
+        console.log(`New pizza`, pizza);
       })
-      .catch(error => {
-        console.log(error);
+      .catch((err) => {
+        debugger;
+        console.log(err);
       })
-    setFormValues(initialFormValues)
-  }
+  };
 
   const inputChange = (name, value) => {
     yup.reach(Schema, name)

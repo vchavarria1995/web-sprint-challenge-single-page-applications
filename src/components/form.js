@@ -36,6 +36,7 @@ export default function PizzaForm(props) {
                 <label>
                     <h3>Pizza Size</h3>
                     <select
+                        id='size-dropdown'
                         onChange={onChange}
                         value={values.size}
                         name='size'>
@@ -86,6 +87,7 @@ export default function PizzaForm(props) {
                 <label>
                     <h3>Special Instructions (Optional)</h3>
                     <input
+                        id='special-text'
                         style={{ width: '90%', marginLeft: '4%' }}
                         name='instructions'
                         type='text'
