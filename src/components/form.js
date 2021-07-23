@@ -1,4 +1,3 @@
-import { Link, useRouteMatch } from 'react-router-dom'
 import React from 'react';
 
 export default function PizzaForm(props) {
@@ -14,7 +13,7 @@ export default function PizzaForm(props) {
         change(name, valueToUse)
     }
     return (
-        <div className='pizzaFormDiv'>
+        <div className='pizzaFormDiv' id='pizza-form'>
             <h1>Order Now</h1>
             <img src='../Assets/Pizza.jpg' alt='pizza'></img>
             <form onSubmit={onSubmit}>
@@ -23,17 +22,18 @@ export default function PizzaForm(props) {
                     <p>{errors.size}</p>
                 </div>
 
-                <lable>
+                <label>
                     <h3>Name</h3>
                     <input
                         name='name'
                         type='text'
                         value={values.name}
                         onChange={onChange}
+                        id='name-input'
                     />
-                </lable>
+                </label>
 
-                <lable>
+                <label>
                     <h3>Pizza Size</h3>
                     <select
                         onChange={onChange}
@@ -45,45 +45,45 @@ export default function PizzaForm(props) {
                         <option value='medium'>Medium</option>
                         <option value='large'>Large</option>
                     </select>
-                </lable>
+                </label>
 
-                <lable>
+                <label>
                     <h3>Toppings</h3>
                     <h4>Select Toppings</h4>
-                    <lable>Pepperoni
+                    <label>Pepperoni
                     <input
                             type='checkbox'
                             name='pepperoni'
                             onChange={onChange}
                         />
-                    </lable>
+                    </label>
 
-                    <lable>Olives
+                    <label>Olives
                     <input
                             type='checkbox'
                             name='olives'
                             onChange={onChange}
                         />
-                    </lable>
+                    </label>
 
-                    <lable>Sausage
+                    <label>Sausage
                     <input
                             type='checkbox'
                             name='sausage'
                             onChange={onChange}
                         />
-                    </lable>
+                    </label>
 
-                    <lable>Mushrooms
+                    <label>Mushrooms
                     <input
                             type='checkbox'
                             name='mushrooms'
                             onChange={onChange}
                         />
-                    </lable>
-                </lable>
+                    </label>
+                </label>
 
-                <lable>
+                <label>
                     <h3>Special Instructions (Optional)</h3>
                     <input
                         style={{ width: '90%', marginLeft: '4%' }}
@@ -92,7 +92,7 @@ export default function PizzaForm(props) {
                         onChange={onChange}
                         value={values.instructions}
                     />
-                </lable>
+                </label>
 
                 <button id="submit" disabled={disabled}>Place Order</button>
 
